@@ -1,0 +1,425 @@
+{
+  "sys": {
+    "type": "Array"
+  },
+  "total": 12,
+  "skip": 0,
+  "limit": 100,
+  "items": [
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "imvzoyXA8o2sQWcE06C2O",
+        "type": "Entry",
+        "createdAt": "2017-04-14T08:20:35.841Z",
+        "updatedAt": "2017-04-14T08:20:35.841Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "subhaashita"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Dinada Panchaanga",
+        "description": "ಪಂಚಾಂಗ 14.04.2017\n\nಹೇಮಲಂಬ ನಾಮ ಸಂವತ್ಸರ :\nಉತ್ತರಾಯಣ ;\nವಸಂತ ಋತು ;\nಚೈತ್ರ ಮಾಸ ;\nಕೃಷ್ಣ ಪಕ್ಷ ;\nತೃತೀಯ, \nಭಾರ್ಗವಾಸರ ;\nವಿಶಾಖ ನಕ್ಷತ್ರ ;\nಸಿದ್ಧಿ ಯೋಗ ;\nಭದ್ರ ಕರಣ ; \nಪುಣ್ಯದಿನ -  ಶ್ರೀ ವಾಗೀಶ ತೀರ್ಥರು - ನವವೃಂದಾವನ"
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "3eisbaK00oey6CoOyUmQcC",
+        "type": "Entry",
+        "createdAt": "2017-04-14T08:30:40.939Z",
+        "updatedAt": "2017-04-14T08:30:40.939Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "kanthapaatha"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "ಕಂಠ ಪಾಠ",
+        "subtitle": "ಪ್ರಥಮೋ ಹನುಮನ್ನ್ನಾಮ | ದ್ವಿತೀಯೋ ಭೀಮ ಯೇವ ಚ \nಪೂರ್ಣ ಪ್ರಜ್ನ್ಯ ತೃತೀಯಸ್ತು ಭಗವತ್ ಕಾರ್ಯ ಸಾಧಕಃ ",
+        "description": "prathamO hanumAn nAma dviteeyO bheema Eva cha |\npUrNaprajna tRuteeyastu bhagavat kAryasAdhakaH ||"
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "32DITfT02ASUQ0ogKwUoiG",
+        "type": "Entry",
+        "createdAt": "2017-04-14T08:32:49.786Z",
+        "updatedAt": "2017-04-14T08:32:49.786Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "newsfeed"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Angara-Akshate",
+        "description": "Tradition (Sampradaya)\nAccording to Madhva sampradaya Madhwas mark two vertical lines with Gopichandana representing Krishna's 'lotus feet'.[2] In between a vertical black line is made from the daily coal of the dhupa (incense).Madhwas generally worship only Avataras of Vishnu or Krishna daily. The coal left after offering incense is used to mark the black line. This is called as Angara. Those who are wearing this line have finished the Devara Puja (worship). Underneath the black line, red dot is added to indicate that one has finished eating their lunch.This dot is called as Akshate. It is the ash of the banana tree flower petal mixed with turmeric paste. The shape of Angara-Akshate is like that of a gada (mace). It is supposed to be Pranadeva Sannidhi (have the presence of Vayu Devaru). Those who did not perform daily worship to Narayana wear the simple two line tilak only."
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "1ZMDwXO05qyWkGqwiAwkO6",
+        "type": "Entry",
+        "createdAt": "2017-04-14T08:44:36.804Z",
+        "updatedAt": "2017-04-14T08:44:36.804Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "newsfeed"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Bhoota Raajaru",
+        "description": "Shree Bhootarajaru is referred as Vadirajadoota, who carried the idols and swamiji in a panquin invisible to others. He was indeed a great scholar from Kashi. Sri Bhootaraajaru due to his arrogant nature had interfered with a friendly conversation between vyasarajaru and vadirajaru, which made vadirajaru to curse him to be a brahma rakshasa. Later Vadirajaru selected Sonda as his place for penance and used bhootaraja to perform difficult tasks like bringing Trivikrama temple from Badarinath."
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "2HFO8X3gw8UoMeSEiiYWku",
+        "type": "Entry",
+        "createdAt": "2017-04-14T09:57:45.061Z",
+        "updatedAt": "2017-04-14T09:57:45.061Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Sarvamoolagrantha",
+        "body": "The Sarvamoolagrantha Written in Tulu\n\nHitherto housed in the sanctum sanctorum of the Palimar Math and worshipped by successive pontiffs, the manuscripts, popularly Sarvamoola, were dictated by Madhwacharya to Hrisheekesha Tirtha, his disciple. Interestingly, while the Acharya Madhwa dictated them in Sanskrit while his disciple wrote it in Tulu, their mother tongue.\n\n",
+        "featuredImage": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "592HAsmoWAYYoi6EgKYGAU"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "30456kLkHewYskKKKAKgQg",
+        "type": "Entry",
+        "createdAt": "2017-04-14T10:26:18.741Z",
+        "updatedAt": "2017-04-14T10:26:18.741Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "post"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Kumara Vyasa",
+        "body": "Kumara Vyasa (Kannada: ಕುಮಾರವ್ಯಾಸ) is the pen name of Naranappa (Kannada: ನಾರಣಪ್ಪ), an influential and classical poet of the Kannada language in the early 15th century. His pen name is a tribute to his magnum opus, a rendering of the Mahabharata in Kannada. Kumara Vyasa literally means Little Vyasa or Son of Vyasa (author of Mahabharata). He was the contemporary and arch rival of the famous Veerashaiva poet laureate Chamarasa who has written the seminal work \"Prabhulingaleele\" covering the lives of Allama Prabhu and other Shivasharanas, circa 1435. Both these poets worked in the court of Devaraya II.\n\nKumara Vyasa's most famous work, the Karnata Bharata Kathamanjari (the Mahabharata of Karnataka) is popularly known as Gadugina Bharata and Kumaravyasa Bharata. It is an adaptation of the first ten Parvas (chapters) of the Mahabharata. A devotee of Krishna, Kumara Vyasa ends his epic with the coronation of Yudhishthira, the eldest of the Pandavas. The work is celebrated in Kannada literature due to its universal appeal.",
+        "featuredImage": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Asset",
+            "id": "3AxNb8rAs8mAEqMgQC2GmM"
+          }
+        }
+      }
+    },
+    {
+      "sys": {
+        "space": {
+          "sys": {
+            "type": "Link",
+            "linkType": "Space",
+            "id": "ypb8g5qr54b8"
+          }
+        },
+        "id": "4X7XoInSyQoWQOOikyqeCA",
+        "type": "Entry",
+        "createdAt": "2017-04-14T11:02:11.495Z",
+        "updatedAt": "2017-04-14T11:02:11.495Z",
+        "revision": 1,
+        "contentType": {
+          "sys": {
+            "type": "Link",
+            "linkType": "ContentType",
+            "id": "series"
+          }
+        },
+        "locale": "en-US"
+      },
+      "fields": {
+        "title": "Sandhyaavandane for All\nby Dr. Vyasanakere Prabhanjanacharya",
+        "activity": "Achamana<> ![sarvamoola-of-hrishikeshatheertha1](//images.contentful.com/ypb8g5qr54b8/592HAsmoWAYYoi6EgKYGAU/621aa47163d011329653869d33d7306a/sarvamoola-of-hrishikeshatheertha1.jpg)<> Pranayama<> ![sarvamoola-of-hrishikeshatheertha1](//images.contentful.com/ypb8g5qr54b8/592HAsmoWAYYoi6EgKYGAU/621aa47163d011329653869d33d7306a/sarvamoola-of-hrishikeshatheertha1.jpg) ![VaidikaVignanam-Logo-English-Large-e1304646081901](//images.contentful.com/ypb8g5qr54b8/67tIl3yZ9KAuSY4II2kcKk/38b4cf9683664ab4cd4e907dad8a069f/VaidikaVignanam-Logo-English-Large-e1304646081901.png)<> Sankalpa![Lemnos](//images.contentful.com/ypb8g5qr54b8/2Y8LhXLnYAYqKCGEWG4EKI/2a94b8b6e589607cb17f0f85246a7359/lemnos-logo.jpg)<> Marjana<> Jalabhimantrana<> Punarmarjana<> Suryarghya<> Japa<> Dignamskara<> Krishnarpana",
+        "description": "Drinking a small quantity of water (equal to size of urad dal)<> || <> Takes in pure air and lets out impure air<> || <> Recollecting the date, time and place in which the activity is being performed<> || <> Sprinkling of water on one’s body<> || <> Drinking the sacred water<> || <> Sprinkling of water on one’s body<> || <> Offering the sacred water to Lord Narayana residing in the sun god<> || <> Repetition of the Gayatri Mantra 10/100 /1000 or more no. of times and reciting the Narayana mantra three times the no. of times one has recited the Gayatri mantra<> || <> Prayer to the presiding deities of all the directions<> Offering the actions at the feet of Lord Krishna",
+        "subtext": "Lubricates the entire food pipe and cleans it<> || <> Gets us the control of the entire body<> || <>Develops the willpower required for a successful mindset<> || <>Completes the bathing ritual with the mantras<> || <>Purification of the body<> || <>Re-cleaning the body<> || <>Solar energy is recognized as having enormous powers in purification, ripening of fruits, medicinal powers in curing skin and other related diseases.<> || <>Sharpens the mind, leads to clear and sharp thinking, memory and leads to personal upliftment.<> || <>To get protection and success in all the 10 directions<> || This completes the activity and gives it all the relevance.  An action which is not offered on the feet of the Lord is useless and meaning less"
+      }
+    }
+  ],
+  "includes": {
+    "Asset": [
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "2Y8LhXLnYAYqKCGEWG4EKI",
+          "type": "Asset",
+          "createdAt": "2016-12-20T09:32:09.295Z",
+          "updatedAt": "2016-12-20T09:32:09.295Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Lemnos",
+          "description": "company logo",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/2Y8LhXLnYAYqKCGEWG4EKI/2a94b8b6e589607cb17f0f85246a7359/lemnos-logo.jpg",
+            "details": {
+              "size": 7149,
+              "image": {
+                "width": 175,
+                "height": 32
+              }
+            },
+            "fileName": "lemnos-logo.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "3wtvPBbBjiMKqKKga8I2Cu",
+          "type": "Asset",
+          "createdAt": "2016-12-20T09:32:09.294Z",
+          "updatedAt": "2016-12-20T09:32:09.294Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Normann Copenhagen",
+          "description": "Brand logo",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/3wtvPBbBjiMKqKKga8I2Cu/8d9c260f6ca188d5f5a4ff8b284273c4/zJYzDlGk.jpeg",
+            "details": {
+              "size": 12302,
+              "image": {
+                "width": 353,
+                "height": 353
+              }
+            },
+            "fileName": "zJYzDlGk.jpeg",
+            "contentType": "image/jpeg"
+          }
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "4zj1ZOfHgQ8oqgaSKm4Qo2",
+          "type": "Asset",
+          "createdAt": "2016-12-20T09:32:08.359Z",
+          "updatedAt": "2016-12-20T09:32:08.359Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Playsam",
+          "description": "Brand logo",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/4zj1ZOfHgQ8oqgaSKm4Qo2/7b33626d028bdbd29bd2c2972d91230b/playsam.jpg",
+            "details": {
+              "size": 7003,
+              "image": {
+                "width": 100,
+                "height": 100
+              }
+            },
+            "fileName": "playsam.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "592HAsmoWAYYoi6EgKYGAU",
+          "type": "Asset",
+          "createdAt": "2017-04-14T09:57:32.557Z",
+          "updatedAt": "2017-04-14T09:57:32.557Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "sarvamoola-of-hrishikeshatheertha1",
+          "description": "sarvamoola-of-hrishikeshatheertha1",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/592HAsmoWAYYoi6EgKYGAU/621aa47163d011329653869d33d7306a/sarvamoola-of-hrishikeshatheertha1.jpg",
+            "details": {
+              "size": 17584,
+              "image": {
+                "width": 318,
+                "height": 221
+              }
+            },
+            "fileName": "sarvamoola-of-hrishikeshatheertha1.jpg",
+            "contentType": "image/jpeg"
+          }
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "6m5AJ9vMPKc8OUoQeoCS4o",
+          "type": "Asset",
+          "createdAt": "2016-12-20T09:32:08.364Z",
+          "updatedAt": "2016-12-20T09:32:08.364Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Home and Kitchen",
+          "description": "category icon",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/6m5AJ9vMPKc8OUoQeoCS4o/da33bc5e1d788f4f12067e4030f9d19c/1418244847_Streamline-18-256.png",
+            "details": {
+              "size": 2977,
+              "image": {
+                "width": 256,
+                "height": 256
+              }
+            },
+            "fileName": "1418244847_Streamline-18-256.png",
+            "contentType": "image/png"
+          }
+        }
+      },
+      {
+        "sys": {
+          "space": {
+            "sys": {
+              "type": "Link",
+              "linkType": "Space",
+              "id": "ypb8g5qr54b8"
+            }
+          },
+          "id": "6t4HKjytPi0mYgs240wkG",
+          "type": "Asset",
+          "createdAt": "2016-12-20T09:32:08.819Z",
+          "updatedAt": "2016-12-20T09:32:08.819Z",
+          "revision": 1,
+          "locale": "en-US"
+        },
+        "fields": {
+          "title": "Toys",
+          "description": "Category icon set",
+          "file": {
+            "url": "//images.contentful.com/ypb8g5qr54b8/6t4HKjytPi0mYgs240wkG/f2c8c545a6837f9cd5f130cf900b385a/toys_512pxGREY.png",
+            "details": {
+              "size": 6744,
+              "image": {
+                "width": 128,
+                "height": 128
+              }
+            },
+            "fileName": "toys_512pxGREY.png",
+            "contentType": "image/png"
+          }
+        }
+      }
+    ]
+  }
+}
