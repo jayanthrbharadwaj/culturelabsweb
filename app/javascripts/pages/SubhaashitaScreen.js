@@ -103,11 +103,19 @@ class SubhaashitaScreen extends React.Component {
         }
     };
 
+    getQuestionaireJSON(object) {
+        for (let i = 0; i < object.length; i++) {
+            if (object[i].fields.questionaireJson != null) {
+                return object[i].fields.questionaireJson.rows
+            }
+        }
+    }
+
     render() {
         const {router, params, location, routes} = this.props
         const {finished, stepIndex} = this.state;
         this.splitString = this.props.location.state.clickedObject.clicked.fields.description
-        this.questionaireJson = this.props.location.state.fullObject[4].fields.questionaireJson.rows
+        this.questionaireJson = this.getQuestionaireJSON(this.props.location.state.fullObject);
         this.splitString = this.splitString.split(";")
         return (
             <div>
@@ -116,7 +124,8 @@ class SubhaashitaScreen extends React.Component {
                     <CardTitle
                         style={utils.kannadaStyle.kannadaTitleStyle}
                         title={this.props.location.state.clickedObject.clicked.fields.title}/>
-                    <CardText style={utils.kannadaStyle.kannadaSubtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
+                    <CardText
+                        style={utils.kannadaStyle.kannadaSubtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
                 </Card>
                 <Divider />
                 <List>
@@ -139,11 +148,11 @@ class SubhaashitaScreen extends React.Component {
                 />
                 <br/>
                 <Paper zDepth={1}>
-                        <CardTitle
-                            style={utils.kannadaStyle.kannadaTitleStyle}
-                            title="ಥಟ್ ಅಂತ ಹೇಳಿ"/>
+                    <CardTitle
+                        style={utils.kannadaStyle.kannadaTitleStyle}
+                        title="ಥಟ್ ಅಂತ ಹೇಳಿ"/>
                     <Stepper activeStep={stepIndex}>
-                        {this.questionaireJson.map((row, index) => (
+                        {null != this.questionaireJson && this.questionaireJson.map((row, index) => (
                             <Step>
                                 <StepLabel>{"Q " + (index + 1)}</StepLabel>
                             </Step>
@@ -152,7 +161,7 @@ class SubhaashitaScreen extends React.Component {
                     <div>
                         <p style={this.styles.listHeaderStyle}>{this.questionaireJson[stepIndex].question1}</p>
                         <div style={{marginTop: 12}}>
-                            {this.questionaireJson[stepIndex].answers.map((row, index) => (
+                            {null != this.questionaireJson && this.questionaireJson[stepIndex].answers.map((row, index) => (
                                 <RaisedButton
                                     label={row}
                                     fullWidth={false}
