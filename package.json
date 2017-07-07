@@ -26,6 +26,7 @@
     "babel-preset-stage-0": "~6.5.0",
     "body-parser": "~1.16.0",
     "classnames": "~2.2.1",
+    "contentful": "^4.5.0",
     "cookie-parser": "~1.4.3",
     "cross-env": "~2.0.0",
     "css-loader": "~0.23.1",
