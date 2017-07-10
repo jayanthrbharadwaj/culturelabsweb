@@ -1,14 +1,14 @@
 import React from "react";
-import {ListItem, List, CardText} from "material-ui";
+import {ListItem, List} from "material-ui";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import {browserHistory} from 'react-router';
 import utils from '../utils/constants'
+
 injectTapEventPlugin();
 
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const todaysDate = new Date();
 const title = "Today " + days[todaysDate.getDay()];
-const subTitle = "Subhaashita " + todaysDate.getDate().toString();
 
 const style = {
     height: '90px',

@@ -22,8 +22,8 @@ Date.prototype.yyyymmdd = function () {
     ].join('');
 };
 const myCache = new NodeCache({stdTTL: 100, checkperiod: 120});
-myCache.del(serverCache.CACHE_KEYS.HOME, null)
-myCache.flushAll();
+// myCache.del(serverCache.CACHE_KEYS.HOME, null)
+// myCache.flushAll();
 myCache.on("expired", function (key, value) {
 
 });
@@ -43,7 +43,7 @@ module.exports = {
         if (myCache.get(serverCache.CACHE_KEYS.HOME) == undefined) {
             // Date format in yyyy-mm-dd
             var date = new Date();
-            return client.getEntries({'sys.updatedAt[gte]': date.yyyymmdd()})
+            return client.getEntries({'sys.updatedAt[lte]': date.yyyymmdd()})
                 .then((response) => {
                     myCache.set(serverCache.CACHE_KEYS.HOME, response, function (err, success) {
                         if (!err && success) {
