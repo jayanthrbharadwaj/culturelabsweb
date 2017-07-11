@@ -48,6 +48,13 @@ app.get('/home', (req, res) => {
 app.get('/homedetail', (req, res) => {
     res.sendFile(path.join(__dirname, './app/www/index.html'));
 });
+app.get('/service-worker.js', (req, res) => {
+    res.sendFile(path.join(__dirname, './app/www/service-worker.js'));
+});
+
+app.get('/manifest.json', (req, res) => {
+    res.sendFile(path.join(__dirname, './app/www/manifest.json'));
+});
 
 app.get('/homeScreen', (req, res) => {
     res.send(cacheEngine.getHomeScreenResponse());
