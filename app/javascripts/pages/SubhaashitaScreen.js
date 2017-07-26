@@ -4,6 +4,8 @@
 import React, {PropTypes} from 'react';
 import {withRouter} from 'react-router'
 import utils from '../utils/constants'
+import GAEventLogger from '../analytics/GAEventLogger';
+
 import {
     Card,
     CardTitle,
@@ -23,13 +25,8 @@ class SubhaashitaScreen extends React.Component {
 
     constructor(props) {
         super(props);
+        this.logPageEvent()
     }
-
-    flexContainer = {
-        display: 'flex',
-        flexDirection: 'row',
-        padding: 0,
-    };
 
     styles = {
         block: {
@@ -76,56 +73,20 @@ class SubhaashitaScreen extends React.Component {
         correctAnswerIndex: -1
     };
 
-    handleNext = () => {
-        const {stepIndex} = this.state;
-        if (this.state.correctAnswerIndex != -1) {
-            this.setState({
-                answerIndex: -1,
-                correctAnswerIndex: -1,
-                stepIndex: stepIndex >= this.questionaireJson.length - 1 ? 0 : stepIndex + 1,
-                finished: stepIndex >= this.questionaireJson.length - 1,
-            });
-        }
-    };
-
-    handleClick = (item) => {
-        this.setState({
-            answerIndex: item.clicked
-        });
-        if (item.correctAnswer == (item.clickAnswer)) {
-            this.setState({
-                correctAnswerIndex: item.clicked
-            });
-        } else {
-            this.setState({
-                correctAnswerIndex: -1
-            });
-        }
-    };
-
-    getQuestionaireJSON(object) {
-        for (let i = 0; i < object.length; i++) {
-            if (object[i].fields.questionaireJson != null) {
-                return object[i].fields.questionaireJson.rows
-            }
-        }
-    }
-
     render() {
         const {router, params, location, routes} = this.props
         const {finished, stepIndex} = this.state;
-        this.splitString = this.props.location.state.clickedObject.clicked.fields.description
         this.questionaireJson = this.getQuestionaireJSON(this.props.location.state.fullObject);
-        this.splitString = this.splitString.split(";")
+        this.getSplitString();
         return (
             <div>
 
                 <Card>
                     <CardTitle
-                        style={utils.kannadaStyle.kannadaTitleStyle}
+                        style={utils.kannadaStyle.titleStyle}
                         title={this.props.location.state.clickedObject.clicked.fields.title}/>
                     <CardText
-                        style={utils.kannadaStyle.kannadaSubtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
+                        style={utils.kannadaStyle.subtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
                 </Card>
                 <Divider />
                 <List>
@@ -149,7 +110,7 @@ class SubhaashitaScreen extends React.Component {
                 <br/>
                 <Paper zDepth={1}>
                     <CardTitle
-                        style={utils.kannadaStyle.kannadaTitleStyle}
+                        style={utils.kannadaStyle.titleStyle}
                         title="ಥಟ್ ಅಂತ ಹೇಳಿ"/>
                     <Stepper activeStep={stepIndex}>
                         {null != this.questionaireJson && this.questionaireJson.map((row, index) => (
@@ -189,6 +150,50 @@ class SubhaashitaScreen extends React.Component {
                 </Paper>
             </div>
         );
+    }
+
+    getQuestionaireJSON(object) {
+        for (let i = 0; i < object.length; i++) {
+            if (object[i].fields.questionaireJson != null) {
+                return object[i].fields.questionaireJson.rows
+            }
+        }
+    }
+
+    handleNext = () => {
+        const {stepIndex} = this.state;
+        if (this.state.correctAnswerIndex != -1) {
+            this.setState({
+                answerIndex: -1,
+                correctAnswerIndex: -1,
+                stepIndex: stepIndex >= this.questionaireJson.length - 1 ? 0 : stepIndex + 1,
+                finished: stepIndex >= this.questionaireJson.length - 1,
+            });
+        }
+    };
+
+    handleClick = (item) => {
+        this.setState({
+            answerIndex: item.clicked
+        });
+        if (item.correctAnswer == (item.clickAnswer)) {
+            this.setState({
+                correctAnswerIndex: item.clicked
+            });
+        } else {
+            this.setState({
+                correctAnswerIndex: -1
+            });
+        }
+    };
+
+    getSplitString() {
+        this.splitString = this.props.location.state.clickedObject.clicked.fields.description;
+        this.splitString = this.splitString.split(";")
+    }
+
+    logPageEvent() {
+        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
     }
 }
 

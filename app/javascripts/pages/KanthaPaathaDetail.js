@@ -30,11 +30,12 @@ class KanthaPaathaDetail extends React.Component {
                 <Card>
                     <CardTitle
                         title={this.props.location.state.clickedObject.clicked.fields.title}/>
-                    <CardText style={utils.kannadaStyle.kannadaTitleStyle}>{this.props.location.state.clickedObject.clicked.fields.subtitle}</CardText>
-                    <CardText style={utils.kannadaStyle.kannadaSubtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
+                    <CardText
+                        style={utils.kannadaStyle.titleStyle}>{this.props.location.state.clickedObject.clicked.fields.subtitle}</CardText>
+                    <CardText
+                        style={utils.kannadaStyle.subtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
                 </Card>
                 <Divider />
-
             </div>
         );
     }

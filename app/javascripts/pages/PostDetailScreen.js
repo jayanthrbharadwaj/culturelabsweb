@@ -30,7 +30,7 @@ class NewsDetailScreen extends React.Component {
             <div>
                 <Card>
                     <CardHeader
-                        style={utils.kannadaStyle.kannadaSubtitleStyle}
+                        style={utils.kannadaStyle.subtitleStyle}
                         subtitle={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.title}
                         title={this.props.location.state.clickedObject.clicked.fields.title}
                         avatar={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url}
@@ -42,7 +42,7 @@ class NewsDetailScreen extends React.Component {
                         <img src={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url}
                              alt=""/>
                     </CardMedia>
-                    <CardText style={utils.kannadaStyle.kannadaTitleStyle}>{this.props.location.state.clickedObject.clicked.fields.body}</CardText>
+                    <CardText style={utils.kannadaStyle.titleStyle}>{this.props.location.state.clickedObject.clicked.fields.body}</CardText>
                 </Card>
                 <Divider />
 

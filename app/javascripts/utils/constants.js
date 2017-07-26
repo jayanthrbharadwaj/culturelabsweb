@@ -5,17 +5,21 @@ var DISPLAY_TYPES_OBJECT = {
     "post": "post",
     "kanthapaatha": "kanthapaatha",
     "subhaashita": "subhaashita",
-    "newsfeed": "newsfeed"
+    "newsfeed": "newsfeed",
+    "photocarousal": "photocarousal",
+    "series": "series",
 };
 
+var currentTabIndex = 0;
+
 var kannadaStyle = {
-kannadaTitleStyle:{
+titleStyle:{
         fontSize: 24,
-        fontFamily: 'Inconsolata'
+        fontFamily: 'Rancho'
         },
- kannadaSubtitleStyle:{
+ subtitleStyle:{
          fontSize: 20,
-         fontFamily: 'Inconsolata'
+         fontFamily: 'Rancho'
          }
     }
 module.exports = {data: DISPLAY_TYPES_OBJECT, kannadaStyle: kannadaStyle}

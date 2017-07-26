@@ -28,7 +28,7 @@ class NewsDetailScreen extends React.Component {
         return (
             <div>
                 <Card>
-                    <CardText style={utils.kannadaStyle.kannadaSubtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
+                    <CardText style={utils.kannadaStyle.subtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
                 </Card>
                 <Divider />
 

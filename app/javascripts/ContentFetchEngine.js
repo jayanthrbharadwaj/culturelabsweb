@@ -22,8 +22,6 @@ Date.prototype.yyyymmdd = function () {
     ].join('');
 };
 const myCache = new NodeCache({stdTTL: 100, checkperiod: 120});
-// myCache.del(serverCache.CACHE_KEYS.HOME, null)
-// myCache.flushAll();
 myCache.on("expired", function (key, value) {
 
 });
@@ -41,16 +39,14 @@ function handleCallBack(item) {
 module.exports = {
     getHomeScreenResponse: function (callBackFun) {
         if (myCache.get(serverCache.CACHE_KEYS.HOME) == undefined) {
-            // Date format in yyyy-mm-dd
-            var date = new Date();
-            return client.getEntries({'sys.updatedAt[lte]': date.yyyymmdd()})
+            return client.getEntries()
                 .then((response) => {
                     myCache.set(serverCache.CACHE_KEYS.HOME, response, function (err, success) {
                         if (!err && success) {
                             console.log("success " + success + " failure " + err)
                         }
                     });
-
+                    response = filterBasedOnCurrentDate(response);
                     if (callBackFun)callBackFun(JSON.stringify(response))
                 })
                 .catch((error) => {
@@ -71,6 +67,23 @@ module.exports = {
                 return value;
             }));
             cache = null
+        }
+
+        function filterBasedOnCurrentDate(response) {
+            var date = new Date();
+            var index = -1;
+            for (var item of response.items) {
+                index++;
+                if (item.sys.contentType.sys.id == 'subhaashita') {
+                    var itemDate = new Date(item.fields.date);
+                    if (date.yyyymmdd() === itemDate.yyyymmdd()) {
+
+                    } else {
+                        response.items.splice(index, 1);
+                    }
+                }
+            }
+            return response;
         }
     }
 }

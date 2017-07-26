@@ -1,18 +1,12 @@
 import React from "react";
 import {ListItem, List} from "material-ui";
-import injectTapEventPlugin from 'react-tap-event-plugin';
 import {browserHistory} from 'react-router';
 import utils from '../utils/constants'
-
-injectTapEventPlugin();
+import PhotoCarousal from '../innerlists/PhotoCarousal'
 
 var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const todaysDate = new Date();
 const title = "Today " + days[todaysDate.getDay()];
-
-const style = {
-    height: '90px',
-};
 
 class HomeScreenCards extends React.Component {
 
@@ -38,44 +32,32 @@ class HomeScreenCards extends React.Component {
                 {null != this.props.newsList.items && this.props.newsList.items.map(function (object, i) {
                     if (object.sys.contentType.sys.id == utils.data.subhaashita) {
                         return <ListItem
-                            style={utils.kannadaStyle.kannadaTitleStyle}
+                            style={utils.kannadaStyle.titleStyle}
                             primaryText={title}
                             secondaryText={object.fields.description}
                             onTouchTap={function (e) {
                                 this.handleListItemClick({clicked: object})
                             }.bind(this)}
-                            secondaryTextLines={3}
-                            innerDiveStyle={style}/>
-                    }
-                }.bind(this))}
-                {null != this.props.newsList.items && this.props.newsList.items.map(function (object, i) {
-                    if (object.sys.contentType.sys.id == utils.data.kanthapaatha) {
+                            secondaryTextLines={3}/>
+                    } else if (object.sys.contentType.sys.id == utils.data.kanthapaatha) {
                         return <ListItem
-                            style={utils.kannadaStyle.kannadaTitleStyle}
+                            style={utils.kannadaStyle.titleStyle}
                             primaryText={object.fields.title}
                             secondaryText={object.fields.subtitle}
                             onTouchTap={function (e) {
                                 this.handleListItemClick({clicked: object})
                             }.bind(this)}
-                            secondaryTextLines={3}
-                            innerDiveStyle={style}/>
-                    }
-                }.bind(this))}
-                {null != this.props.newsList.items && this.props.newsList.items.map(function (object, i) {
-                    if (object.sys.contentType.sys.id == utils.data.newsfeed) {
+                            secondaryTextLines={3}/>
+                    } else if (object.sys.contentType.sys.id == utils.data.newsfeed) {
                         return <ListItem
-                            style={utils.kannadaStyle.kannadaTitleStyle}
+                            style={utils.kannadaStyle.titleStyle}
                             primaryText={object.fields.title}
                             secondaryText={object.fields.description}
                             onTouchTap={function (e) {
                                 this.handleListItemClick({clicked: object})
                             }.bind(this)}
-                            secondaryTextLines={3}
-                            innerDiveStyle={style}/>
-                    }
-                }.bind(this))}
-                {null != this.props.newsList.items && this.props.newsList.items.map(function (object, i) {
-                    if (object.sys.contentType.sys.id == utils.data.post) {
+                            secondaryTextLines={3}/>
+                    } else if (object.sys.contentType.sys.id == utils.data.post) {
                         return <ListItem
                             primaryText={object.fields.title}
                             secondaryText={object.fields.body}
@@ -83,7 +65,9 @@ class HomeScreenCards extends React.Component {
                                 this.handleListItemClick({clicked: object})
                             }.bind(this)}
                             secondaryTextLines={3}
-                            style={utils.kannadaStyle.kannadaTitleStyle}/>
+                            style={utils.kannadaStyle.titleStyle}/>
+                    } else if (object.sys.contentType.sys.id == utils.data.photocarousal) {
+                        return <PhotoCarousal subtitle={object.fields.subtitle}/>
                     }
                 }.bind(this))}
             </List>
