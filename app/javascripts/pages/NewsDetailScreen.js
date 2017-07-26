@@ -1,16 +1,17 @@
 /**
  * Created by jayanth on 30/03/17.
  */
-import React, {PropTypes} from 'react';
-import {withRouter} from 'react-router'
-import utils from '../utils/constants'
-import {Card, CardTitle, CardText, Divider} from 'material-ui';
+import React, {PropTypes} from "react";
+import {withRouter} from "react-router";
+import utils from "../utils/constants";
+import {Card, CardText, Divider} from "material-ui";
 
 class NewsDetailScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.pageObject = {};
+        this.logPageEvent()
     }
 
     static propTypes = {
@@ -34,6 +35,10 @@ class NewsDetailScreen extends React.Component {
 
             </div>
         );
+    }
+
+    logPageEvent() {
+        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
     }
 }
 

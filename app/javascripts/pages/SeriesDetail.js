@@ -6,6 +6,7 @@ import {withRouter} from 'react-router'
 import SwipeableViews from 'react-swipeable-views';
 import ImageUtil from "../utils/ImageUtil";
 import Paper from 'material-ui/Paper';
+import GAEventLogger from '../analytics/GAEventLogger';
 
 const style = {
     paperStyle: {
@@ -64,6 +65,10 @@ class SeriesDetail extends React.Component {
                 </SwipeableViews>
             </div>
         );
+    }
+
+    logPageEvent() {
+        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
     }
 }
 

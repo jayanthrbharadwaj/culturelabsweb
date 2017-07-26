@@ -5,12 +5,14 @@ import React, {PropTypes} from 'react';
 import {withRouter} from 'react-router'
 import utils from '../utils/constants'
 import {Card, CardTitle, CardText, Divider} from 'material-ui';
+import GAEventLogger from '../analytics/GAEventLogger';
 
 class KanthaPaathaDetail extends React.Component {
 
     constructor(props) {
         super(props);
         this.pageObject = {};
+        this.logPageEvent()
     }
 
     static propTypes = {
@@ -38,6 +40,10 @@ class KanthaPaathaDetail extends React.Component {
                 <Divider />
             </div>
         );
+    }
+
+    logPageEvent() {
+        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
     }
 }
 

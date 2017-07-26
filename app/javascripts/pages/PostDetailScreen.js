@@ -5,12 +5,14 @@ import React, {PropTypes} from 'react';
 import {withRouter} from 'react-router'
 import utils from '../utils/constants'
 import {Card, CardTitle, CardHeader, CardText, CardMedia, Divider} from 'material-ui';
+import GAEventLogger from '../analytics/GAEventLogger';
 
 class NewsDetailScreen extends React.Component {
 
     constructor(props) {
         super(props);
         this.pageObject = {};
+        this.logPageEvent()
     }
 
     static propTypes = {
@@ -48,6 +50,10 @@ class NewsDetailScreen extends React.Component {
 
             </div>
         );
+    }
+
+    logPageEvent() {
+        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
     }
 }
 
