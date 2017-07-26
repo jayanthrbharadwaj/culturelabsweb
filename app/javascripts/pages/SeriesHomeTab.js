@@ -2,7 +2,6 @@ import React from "react";
 import {GridList, GridTile} from "material-ui";
 import {browserHistory} from "react-router";
 import utils from "../utils/constants";
-import GAEventLogger from '../analytics/GAEventLogger';
 
 const styles = {
     root: {
@@ -24,7 +23,6 @@ class SeriesHomeTab extends React.Component {
     constructor(props) {
         super(props);
         this.series = []
-        this.logPageEvent()
     }
 
     componentWillReceiveProps(nextProps) {

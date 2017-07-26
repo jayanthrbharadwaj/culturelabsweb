@@ -5,6 +5,7 @@ import React, {PropTypes} from "react";
 import {withRouter} from "react-router";
 import utils from "../utils/constants";
 import {Card, CardText, Divider} from "material-ui";
+import GAEventLogger from '../analytics/GAEventLogger';
 
 class NewsDetailScreen extends React.Component {
 
