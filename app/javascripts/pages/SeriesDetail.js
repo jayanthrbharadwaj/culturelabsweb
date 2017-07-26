@@ -11,8 +11,9 @@ const style = {
     paperStyle: {
         textAlign: 'center',
         width: '100%',
-        top: '50%',
-        margin: '0 auto',
+        marginTop: '10px',
+        marginLeft: '10px',
+        marginRight: '20px',
         display: 'inline-block',
         verticalAlign: 'middle'
     },
