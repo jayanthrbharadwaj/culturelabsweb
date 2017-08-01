@@ -29,6 +29,7 @@ export default class HomeScreenTabsBar extends React.Component {
         this.setState({newsStateObj: false});
         axios.get('/newslist')
             .then(function (response) {
+                console.log("response "+JSON.stringify(response));
                 this.newsList = response.data;
                 this.setState({newsStateObj: true});
             }.bind(this))

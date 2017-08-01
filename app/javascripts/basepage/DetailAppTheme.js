@@ -14,24 +14,24 @@ class AppBarExampleIcon extends React.Component {
         this.clicked = this.props.location.state.clickedObject.clicked;
         this.subhashita = false;
         this.post = false;
-        this.newsfeed = false;
+        this.newsItems = false;
         this.kanthapaatha = false;
         this.photocarousal = false;
 
         switch(this.clicked.sys.contentType.sys.id) {
-            case utils.data.subhaashita:
+            case utils.data.sankalpaMantra:
                 this.subhashita = true;
                 break;
             case utils.data.kanthapaatha:
                 this.kanthapaatha = true;
                 break;
-            case utils.data.newsfeed:
-                this.newsfeed = true;
+            case utils.data.newsItems:
+                this.newsItems = true;
                 break;
             case utils.data.post:
                 this.post = true;
                 break;
-            case utils.data.photocarousal:
+            case utils.data.photoCarousal:
                 this.photocarousal = true;
                 break;
             case utils.data.series:
@@ -47,9 +47,8 @@ class AppBarExampleIcon extends React.Component {
                     <div>
                         <ToolBar/>
                         {this.subhashita && <SubhaashitaScreen/>}
-                        {this.newsfeed && <NewsDetailScreen/>}
+                        {this.newsItems && <NewsDetailScreen/>}
                         {this.post && <PostDetailScreen/>}
-                        {this.kanthapaatha && <KanthaPaathaDetail/>}
                         {this.kanthapaatha && <KanthaPaathaDetail/>}
                         {this.series && <SeriesDetailScreen/>}
                     </div>

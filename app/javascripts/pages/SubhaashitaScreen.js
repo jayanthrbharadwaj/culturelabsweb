@@ -21,7 +21,7 @@ import {
     RaisedButton
 } from 'material-ui';
 
-class SubhaashitaScreen extends React.Component {
+class SankalpaMantraScreen extends React.Component {
 
     constructor(props) {
         super(props);
@@ -154,8 +154,8 @@ class SubhaashitaScreen extends React.Component {
 
     getQuestionaireJSON(object) {
         for (let i = 0; i < object.length; i++) {
-            if (object[i].fields.questionaireJson != null) {
-                return object[i].fields.questionaireJson.rows
+            if (object[i].fields.questionAire != null) {
+                return object[i].fields.questionAire.rows
             }
         }
     }
@@ -197,4 +197,4 @@ class SubhaashitaScreen extends React.Component {
     }
 }
 
-export default withRouter(SubhaashitaScreen)
+export default withRouter(SankalpaMantraScreen)

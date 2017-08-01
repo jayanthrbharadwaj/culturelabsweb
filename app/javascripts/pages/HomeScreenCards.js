@@ -30,7 +30,7 @@ class HomeScreenCards extends React.Component {
         return (
             <List>
                 {null != this.props.newsList.items && this.props.newsList.items.map(function (object, i) {
-                    if (object.sys.contentType.sys.id == utils.data.subhaashita) {
+                    if (object.sys.contentType.sys.id == utils.data.sankalpaMantra) {
                         return <ListItem
                             style={utils.kannadaStyle.titleStyle}
                             primaryText={title}
@@ -48,7 +48,7 @@ class HomeScreenCards extends React.Component {
                                 this.handleListItemClick({clicked: object})
                             }.bind(this)}
                             secondaryTextLines={3}/>
-                    } else if (object.sys.contentType.sys.id == utils.data.newsfeed) {
+                    } else if (object.sys.contentType.sys.id == utils.data.newsItems) {
                         return <ListItem
                             style={utils.kannadaStyle.titleStyle}
                             primaryText={object.fields.title}
@@ -66,7 +66,7 @@ class HomeScreenCards extends React.Component {
                             }.bind(this)}
                             secondaryTextLines={3}
                             style={utils.kannadaStyle.titleStyle}/>
-                    } else if (object.sys.contentType.sys.id == utils.data.photocarousal) {
+                    } else if (object.sys.contentType.sys.id == utils.data.photoCarousal) {
                         return <PhotoCarousal subtitle={object.fields.subtitle}/>
                     }
                 }.bind(this))}
