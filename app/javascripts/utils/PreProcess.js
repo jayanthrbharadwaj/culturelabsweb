@@ -19,9 +19,9 @@ class PreProcess {
         var index = -1;
         for (var item of response.items) {
             index++;
-            item.fields.title = item.fields.title.replace(new RegExp("\\n", 'g'),"<br/>");
-            if (item.sys.contentType.sys.id == utils.sankalpaMantra) {
-                var itemDate = new Date(item.fields.date);
+            console.log(item.sys.contentType.sys.id+"    "+utils.data.sankalpaMantra);
+            if (item.sys.contentType.sys.id == utils.data.sankalpaMantra) {
+                var itemDate = new Date(item.fields.dateAndTime);
                 if (date.yyyymmdd() === itemDate.yyyymmdd()) {
 
                 } else {
