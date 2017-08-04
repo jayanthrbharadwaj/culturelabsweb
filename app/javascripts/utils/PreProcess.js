@@ -17,15 +17,17 @@ class PreProcess {
     static  filterBasedOnCurrentDate(response) {
         var date = new Date();
         var index = -1;
-        for (var item of response.items) {
-            index++;
-            console.log(item.sys.contentType.sys.id+"    "+utils.data.sankalpaMantra);
-            if (item.sys.contentType.sys.id == utils.data.sankalpaMantra) {
-                var itemDate = new Date(item.fields.dateAndTime);
-                if (date.yyyymmdd() === itemDate.yyyymmdd()) {
+        if(null != response.items && response.items.length>0) {
+            for (var item of response.items) {
+                index++;
+                console.log(item.sys.contentType.sys.id + "    " + utils.data.sankalpaMantra);
+                if (item.sys.contentType.sys.id == utils.data.sankalpaMantra) {
+                    var itemDate = new Date(item.fields.dateAndTime);
+                    if (date.yyyymmdd() === itemDate.yyyymmdd()) {
 
-                } else {
-                    response.items.splice(index, 1);
+                    } else {
+                        response.items.splice(index, 1);
+                    }
                 }
             }
         }

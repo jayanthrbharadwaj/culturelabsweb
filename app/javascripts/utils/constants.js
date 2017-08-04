@@ -26,5 +26,18 @@ titleStyle:{
            wordWrap: 'break-word'
          }
     }
-module.exports = {data: DISPLAY_TYPES_OBJECT, kannadaStyle: kannadaStyle}
+    var allPostsStyle = {
+        noscroll: {
+          width:'40px',
+          height:'40px',
+          overflow: 'hidden',
+          position: 'relative',
+          zIndex: 10,
+          float:'right',
+          overflowY: 'scroll',
+          align:'right',
+          top: 10, right: 12, bottom: 0, left: 0
+        }
+    }
+module.exports = {data: DISPLAY_TYPES_OBJECT, kannadaStyle: kannadaStyle, allPostsStyle: allPostsStyle}
 

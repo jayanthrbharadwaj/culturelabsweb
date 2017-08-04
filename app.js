@@ -60,6 +60,18 @@ app.get('/homeScreen', (req, res) => {
     res.send(cacheEngine.getHomeScreenResponse());
 });
 
+app.get('/content/item', (req, res) => {
+    cacheEngine.getItemDetailResponse(req, function (item) {
+        res.send(item);
+    });
+});
+
+app.get('/content/asset', (req, res) => {
+    cacheEngine.getItemAsset(req, function (item) {
+        res.send(item);
+    });
+});
+
 app.get('/newslist', (req, res) => {
     cacheEngine.getHomeScreenResponse(function (item) {
         res.send(item);

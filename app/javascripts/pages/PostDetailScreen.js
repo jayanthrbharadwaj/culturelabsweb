@@ -1,11 +1,14 @@
 /**
  * Created by jayanth on 30/06/17.
  */
-import React, {PropTypes} from 'react';
-import {withRouter} from 'react-router'
-import utils from '../utils/constants'
-import {Card, CardTitle, CardHeader, CardText, CardMedia, Divider} from 'material-ui';
-import GAEventLogger from '../analytics/GAEventLogger';
+import React, {PropTypes} from "react";
+import {withRouter} from "react-router";
+import utils from "../utils/constants";
+import {Card, CardTitle, CardHeader, CardText, CardMedia, Divider} from "material-ui";
+import GAEventLogger from "../analytics/GAEventLogger";
+import ShareUrlBuilder from '../share/ShareUrlBuilder';
+import Whatsapp from "react-share-icons/lib/Whatsapp";
+import ImageUtil from '../utils/ImageUtil'
 
 class NewsDetailScreen extends React.Component {
 
@@ -15,36 +18,41 @@ class NewsDetailScreen extends React.Component {
         this.logPageEvent()
     }
 
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
+    componentDidMount() {
+        this.initBundleObject();
     }
+
+    componentWillReceiveProps(nextProps) {
+        this.imageUrl = ImageUtil.getImageUrlHttp(nextProps.itemOnly.fields.file.url)
+        this.subtitle = nextProps.itemOnly.fields.title;
+        this.setState({newsStateObj: true})
+    }
+
     state = {
         slideIndex: 0,
         newsStateObj: false
     };
 
     render() {
-        const {router, params, location, routes} = this.props
-        console.log(this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url);
         return (
             <div>
+                <a style={utils.allPostsStyle.noscroll} href={this.shareUrl}>
+                    <Whatsapp /></a>
                 <Card>
                     <CardHeader
                         style={utils.kannadaStyle.subtitleStyle}
-                        subtitle={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.title}
-                        title={this.props.location.state.clickedObject.clicked.fields.title}
-                        avatar={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url}
+                        subtitle={this.subtitle}
+                        title={this.title}
+                        avatar={this.imageUrl}
                     />
                     <CardMedia
-                        overlay={<CardTitle title={this.props.location.state.clickedObject.clicked.fields.title}
-                                            subtitle={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.title}/>}
+                        overlay={<CardTitle title={this.title}
+                                            subtitle={this.subtitle}/>}
                     >
-                        <img src={this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url}
+                        <img src={this.imageUrl}
                              alt=""/>
                     </CardMedia>
-                    <CardText style={utils.kannadaStyle.titleStyle}>{this.props.location.state.clickedObject.clicked.fields.body}</CardText>
+                    <CardText style={utils.kannadaStyle.titleStyle}>{this.description}</CardText>
                 </Card>
                 <Divider />
 
@@ -52,8 +60,25 @@ class NewsDetailScreen extends React.Component {
         );
     }
 
+    initBundleObject() {
+        if (null != this.props.location && null != this.props.location.state) {
+            this.itemId = this.props.location.state.clickedObject.clicked.sys.contentType.sys.id;
+            this.title = this.props.location.state.clickedObject.clicked.fields.title;
+            this.subtitle = this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.title;
+            this.description = this.props.location.state.clickedObject.clicked.fields.body;
+            this.imageUrl = this.props.location.state.clickedObject.clicked.fields.featuredImage.fields.file.url
+            this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.location.state.clickedObject.clicked)
+        } else {
+            this.itemId = this.props.bundleObject.sys.contentType.sys.id;
+            this.title = this.props.bundleObject.fields.title;
+            this.description = this.props.bundleObject.fields.body;
+            this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.bundleObject)
+        }
+        this.setState({newsStateObj: true})
+    }
+
     logPageEvent() {
-        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
+        GAEventLogger.logPageViewEvent(this.itemId);
     }
 }
 

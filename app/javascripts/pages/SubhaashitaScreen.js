@@ -5,6 +5,8 @@ import React, {PropTypes} from 'react';
 import {withRouter} from 'react-router'
 import utils from '../utils/constants'
 import GAEventLogger from '../analytics/GAEventLogger';
+import Whatsapp from "react-share-icons/lib/Whatsapp";
+import ShareUrlBuilder from '../share/ShareUrlBuilder';
 
 import {
     Card,
@@ -28,42 +30,13 @@ class SankalpaMantraScreen extends React.Component {
         this.logPageEvent()
     }
 
-    styles = {
-        block: {
-            maxWidth: 250,
-        },
-        toggle: {
-            marginBottom: 16,
-        },
-        thumbOff: {
-            backgroundColor: '#ffcccc',
-        },
-        trackOff: {
-            backgroundColor: '#ff9d9d',
-        },
-        thumbSwitched: {
-            backgroundColor: 'red',
-        },
-        trackSwitched: {
-            backgroundColor: '#ff9d9d',
-        },
-        labelStyle: {
-            color: 'red',
-            fontSize: 10
-        },
-        listHeaderStyle: {
-            color: 'orange',
-            fontSize: 20,
-            marginLeft: 15
-        },
-    };
-
-
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
+    componentDidMount() {
+        this.initBundleObject();
     }
+
+    componentWillReceiveProps(nextProps) {
+    }
+
     state = {
         slideIndex: 0,
         newsStateObj: false,
@@ -74,23 +47,21 @@ class SankalpaMantraScreen extends React.Component {
     };
 
     render() {
-        const {router, params, location, routes} = this.props
         const {finished, stepIndex} = this.state;
-        this.questionaireJson = this.getQuestionaireJSON(this.props.location.state.fullObject);
-        this.getSplitString();
         return (
             <div>
-
+                <a style={utils.allPostsStyle.noscroll} href={this.shareUrl}>
+                    <Whatsapp /></a>
                 <Card>
                     <CardTitle
                         style={utils.kannadaStyle.titleStyle}
-                        title={this.props.location.state.clickedObject.clicked.fields.title}/>
+                        title={this.title}/>
                     <CardText
-                        style={utils.kannadaStyle.subtitleStyle}>{this.props.location.state.clickedObject.clicked.fields.description}</CardText>
+                        style={utils.kannadaStyle.subtitleStyle}>{this.description}</CardText>
                 </Card>
                 <Divider />
                 <List>
-                    {this.splitString.map((row, index) => (
+                    {null != this.splitString && this.splitString.map((row, index) => (
                         <div>
                             <Divider/>
                             <ListItem disabled={true} primaryText={this.splitString[index].split(":")[0]}>
@@ -108,19 +79,20 @@ class SankalpaMantraScreen extends React.Component {
                     labelStyle={this.styles.labelStyle}
                 />
                 <br/>
-                <Paper zDepth={1}>
+                {null != this.questionaireJson && <Paper zDepth={1}>
                     <CardTitle
                         style={utils.kannadaStyle.titleStyle}
                         title="ಥಟ್ ಅಂತ ಹೇಳಿ"/>
                     <Stepper activeStep={stepIndex}>
-                        {null != this.questionaireJson && this.questionaireJson.map((row, index) => (
+                        {this.questionaireJson.map((row, index) => (
                             <Step>
                                 <StepLabel>{"Q " + (index + 1)}</StepLabel>
                             </Step>
                         ))}
                     </Stepper>
-                    <div>
-                        <p style={this.styles.listHeaderStyle}>{this.questionaireJson[stepIndex].question1}</p>
+                    < div >
+                        {null != this.questionaireJson &&
+                        <p style={this.styles.listHeaderStyle}>{this.questionaireJson[stepIndex].question1}</p>}
                         <div style={{marginTop: 12}}>
                             {null != this.questionaireJson && this.questionaireJson[stepIndex].answers.map((row, index) => (
                                 <RaisedButton
@@ -148,9 +120,30 @@ class SankalpaMantraScreen extends React.Component {
                         </div>
                     </div>
                 </Paper>
+                }
             </div>
         );
     }
+
+    initBundleObject() {
+        if (null != this.props.location && null != this.props.location.state && this.props.location.state.clickedObject != null) {
+            this.questionaireJson = this.getQuestionaireJSON(this.props.location.state.fullObject);
+            this.title = this.props.location.state.clickedObject.clicked.fields.title;
+            this.description = this.props.location.state.clickedObject.clicked.fields.description;
+            this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.location.state.clickedObject.clicked)
+            this.itemId = this.props.location.state.clickedObject.clicked.sys.contentType.sys.id;
+            console.log("shareurl " + this.shareUrl);
+        } else {
+            this.itemId = this.props.bundleObject.sys.contentType.sys.id;
+            this.title = this.props.bundleObject.fields.title;
+            this.description = this.props.bundleObject.fields.description;
+            this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.bundleObject)
+            console.log("shareurl " + this.shareUrl);
+        }
+        this.getSplitString(this.description);
+        this.setState({newsStateObj: true})
+    }
+
 
     getQuestionaireJSON(object) {
         for (let i = 0; i < object.length; i++) {
@@ -187,14 +180,43 @@ class SankalpaMantraScreen extends React.Component {
         }
     };
 
-    getSplitString() {
-        this.splitString = this.props.location.state.clickedObject.clicked.fields.description;
-        this.splitString = this.splitString.split(";")
+    getSplitString(description) {
+        this.splitString = description.split(";")
     }
 
     logPageEvent() {
-        GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
+        GAEventLogger.logPageViewEvent(this.itemId);
     }
+
+    styles = {
+        block: {
+            maxWidth: 250,
+        },
+        toggle: {
+            marginBottom: 16,
+        },
+        thumbOff: {
+            backgroundColor: '#ffcccc',
+        },
+        trackOff: {
+            backgroundColor: '#ff9d9d',
+        },
+        thumbSwitched: {
+            backgroundColor: 'red',
+        },
+        trackSwitched: {
+            backgroundColor: '#ff9d9d',
+        },
+        labelStyle: {
+            color: 'red',
+            fontSize: 10
+        },
+        listHeaderStyle: {
+            color: 'orange',
+            fontSize: 20,
+            marginLeft: 15
+        },
+    };
 }
 
 export default withRouter(SankalpaMantraScreen)

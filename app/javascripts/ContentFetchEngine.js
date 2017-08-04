@@ -59,6 +59,41 @@ module.exports = {
             }));
             cache = null
         }
+    },
+
+    getItemDetailResponse: function (req, callBackFun) {
+
+        return client.getEntry(req.query.id)
+            .then((response) => {
+                myCache.set(serverCache.CACHE_KEYS.ITEMDETAIL, response, function (err, success) {
+                    if (!err && success) {
+                        console.log("success " + success + " failure " + err)
+                    }
+                });
+                response = PreProcess.filterBasedOnCurrentDate(response);
+                if (callBackFun)callBackFun(JSON.stringify(response))
+            })
+            .catch((error) => {
+                console.log('\x1b[31merror occured')
+                console.log(error)
+            })
+
+    },
+    getItemAsset: function (req, callBackFun) {
+        return client.getAsset(req.query.id)
+            .then((response) => {
+                myCache.set(serverCache.CACHE_KEYS.IMAGEREQ, response, function (err, success) {
+                    if (!err && success) {
+                        console.log("success " + success + " failure " + err)
+                    }
+                });
+                response = PreProcess.filterBasedOnCurrentDate(response);
+                if (callBackFun)callBackFun(JSON.stringify(response))
+            })
+            .catch((error) => {
+                console.log('\x1b[31merror occured')
+                console.log(error)
+            })
     }
 }
 

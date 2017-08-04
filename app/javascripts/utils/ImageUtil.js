@@ -35,6 +35,14 @@ class ImageUtil {
         }
         return url
     }
+
+    static getImageUrlHttp(url) {
+        if (url.indexOf("//") != -1) {
+            url = "http:" + url
+            return url;
+        }
+        return url
+    }
 }
 
 module.exports = ImageUtil;
