@@ -3,7 +3,7 @@
  */
 class ShareUrlBuilder {
     static  createShareUrl(itemObj) {
-        var baseUrl = window.location.pathname
+        var baseUrl = window.location.origin
         baseUrl = baseUrl + "?&id=" + itemObj.sys.id
         return baseUrl;
     }
