@@ -40,7 +40,7 @@ class NewsDetailScreen extends React.Component {
     render() {
         return (
             <div>
-                <a href={"whatsapp://send?"+this.title} style={utils.allPostsStyle.noscroll} data-action={this.shareUrl}>
+                <a href={"whatsapp://send?text="+this.shareUrl} style={utils.allPostsStyle.noscroll} data-action="share/whatsapp/share">
                     <Whatsapp /></a>
                 <Card>
                     <CardHeader
