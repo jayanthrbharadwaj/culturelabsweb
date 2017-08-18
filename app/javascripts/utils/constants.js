@@ -6,6 +6,7 @@ var DISPLAY_TYPES_OBJECT = {
     "kanthapaatha": "kanthapaatha",
     "sankalpaMantra": "sankalpaMantra",
     "newsItems": "newsItems",
+    "questionAire":"questionAire",
     "photoCarousal": "photoCarousal",
     "series": "series",
 };

@@ -52,7 +52,7 @@ class HomeScreenCards extends React.Component {
         utils.currentListIndex = clickedObject.clickedIndex;
         browserHistory.push({
             pathname: '/homedetail',
-            state: {clickedObject: clickedObject, fullObject: this.props.newsList.items}
+            state: {clickedObject: clickedObject, fullObject: this.props.newsList}
         });
     }
 

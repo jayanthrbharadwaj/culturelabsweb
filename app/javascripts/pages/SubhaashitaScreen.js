@@ -54,7 +54,6 @@ class SankalpaMantraScreen extends React.Component {
                     <Whatsapp /></a>
                 <Card>
                     <CardTitle
-                        style={utils.kannadaStyle.titleStyle}
                         title={this.title}/>
                     <CardText
                         style={utils.kannadaStyle.subtitleStyle}>{this.description}</CardText>
@@ -70,14 +69,7 @@ class SankalpaMantraScreen extends React.Component {
                         </div>
                     ))}
                 </List>
-                <Toggle
-                    label="Take me to top"
-                    thumbStyle={this.styles.thumbOff}
-                    trackStyle={this.styles.trackOff}
-                    thumbSwitchedStyle={this.styles.thumbSwitched}
-                    trackSwitchedStyle={this.styles.trackSwitched}
-                    labelStyle={this.styles.labelStyle}
-                />
+                
                 <br/>
                 {null != this.questionaireJson && <Paper zDepth={1}>
                     <CardTitle

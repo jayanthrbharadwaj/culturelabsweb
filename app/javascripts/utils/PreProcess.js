@@ -39,7 +39,7 @@ class PreProcess {
         if(null != response.items && response.items.length>0) {
             for (var item of response.items) {
                 if (item.sys.contentType.sys.id == utils.data.post || item.sys.contentType.sys.id == utils.data.newsItems ||
-                    item.sys.contentType.sys.id == utils.data.kanthapaatha|| item.sys.contentType.sys.id == utils.data.sankalpaMantra) {
+                    item.sys.contentType.sys.id == utils.data.kanthapaatha|| item.sys.contentType.sys.id == utils.data.sankalpaMantra || item.sys.contentType.sys.id == utils.data.questionAire) {
                     cardsItems.push(item);
                 }
             }
