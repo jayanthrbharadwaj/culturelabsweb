@@ -26,10 +26,10 @@ class SeriesHomeTab extends React.Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (null != nextProps.newsList.items) {
-            for (var i = 0; i < nextProps.newsList.items.length; i++) {
-                if (nextProps.newsList.items[i].sys.contentType.sys.id == utils.data.series) {
-                    this.series.push(nextProps.newsList.items[i]);
+        if (null != nextProps.newsList) {
+            for (var i = 0; i < nextProps.newsList.length; i++) {
+                if (nextProps.newsList[i].sys.contentType.sys.id == utils.data.series) {
+                    this.series.push(nextProps.newsList[i]);
                 }
             }
         }

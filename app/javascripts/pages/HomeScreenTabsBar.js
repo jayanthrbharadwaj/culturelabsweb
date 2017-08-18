@@ -2,10 +2,11 @@
  * Created by jayanth on 30/03/17.
  */
 import React, {PropTypes} from "react";
-import {Tabs, Tab, LinearProgress} from "material-ui";
+import {Tabs, Tab, LinearProgress, Snackbar} from "material-ui";
 import SwipeableViews from "react-swipeable-views";
 import HomeScreenCards from "./HomeScreenCards";
 import SeriesHomeTab from "./SeriesHomeTab";
+import PreProcess from "../utils/PreProcess";
 import axios from "axios";
 import utils from '../utils/constants'
 // From https://github.com/oliviertassinari/react-swipeable-views
@@ -15,23 +16,26 @@ export default class HomeScreenTabsBar extends React.Component {
     constructor(props) {
         super(props);
         this.newsList = [];
+        this.seriesList = [];
         this.loadDBData();
         this.state = {slideIndex: utils.currentTabIndex};
-        console.log("inside constructor "+utils.currentTabIndex)
     }
 
     state = {
         slideIndex: utils.currentTabIndex,
         newsStateObj: false,
+        showHSCCoach: false,
     };
 
     loadDBData() {
         this.setState({newsStateObj: false});
         axios.get('/newslist')
             .then(function (response) {
-                console.log("response "+JSON.stringify(response));
-                this.newsList = response.data;
+                console.log("response " + JSON.stringify(response));
+                this.newsList = PreProcess.filterCardsEntries(response.data);
+                this.seriesList = PreProcess.filterSeriesEntries(response.data);
                 this.setState({newsStateObj: true});
+                this.showCoachMark();
             }.bind(this))
             .catch(function (error) {
                 //console.log(error);
@@ -48,7 +52,7 @@ export default class HomeScreenTabsBar extends React.Component {
     handleChangeIndex = (value) => {
         utils.currentTabIndex = value;
         this.setState({
-            slideIndex:value
+            slideIndex: value
         });
     };
 
@@ -67,10 +71,27 @@ export default class HomeScreenTabsBar extends React.Component {
                         <HomeScreenCards newsList={this.newsList}/>
                     </div>
                     <div>
-                        <SeriesHomeTab newsList={this.newsList}/>
+                        <SeriesHomeTab newsList={this.seriesList}/>
                     </div>
                 </SwipeableViews>
+                <Snackbar
+                    open={this.state.showHSSCoach}
+                    message={utils.COACHMARKTEXT.hscswipe}
+                    action="Okay"
+                    autoHideDuration={4000}
+                    onRequestClose={this.handleCoachMarkClose.bind(this)}
+                />
             </div>
         );
+    }
+
+    showCoachMark() {
+        if (!this.state.showHSCCoach && this.state.slideIndex == null) {
+            this.setState({showHSCCoach: true});
+        }
+    }
+
+    handleCoachMarkClose() {
+        this.setState({showHSCCoach: false});
     }
 }

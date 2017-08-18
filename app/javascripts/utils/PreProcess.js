@@ -33,6 +33,31 @@ class PreProcess {
         }
         return response;
     }
+
+    static filterCardsEntries(response) {
+        var cardsItems=[];
+        if(null != response.items && response.items.length>0) {
+            for (var item of response.items) {
+                if (item.sys.contentType.sys.id == utils.data.post || item.sys.contentType.sys.id == utils.data.newsItems ||
+                    item.sys.contentType.sys.id == utils.data.kanthapaatha|| item.sys.contentType.sys.id == utils.data.sankalpaMantra) {
+                    cardsItems.push(item);
+                }
+            }
+        }
+        return cardsItems;
+    }
+
+    static filterSeriesEntries(response) {
+        var seriesItems=[];
+        if(null != response.items && response.items.length>0) {
+            for (var item of response.items) {
+                if (item.sys.contentType.sys.id == utils.data.series) {
+                    seriesItems.push(item);
+                }
+            }
+        }
+        return seriesItems;
+    }
 }
 
 module.exports = PreProcess;

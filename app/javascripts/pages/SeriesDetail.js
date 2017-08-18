@@ -5,8 +5,9 @@ import React, {PropTypes} from 'react';
 import {withRouter} from 'react-router'
 import SwipeableViews from 'react-swipeable-views';
 import ImageUtil from "../utils/ImageUtil";
-import Paper from 'material-ui/Paper';
+import {Paper, Snackbar} from 'material-ui';
 import GAEventLogger from '../analytics/GAEventLogger';
+import utils from '../utils/constants'
 
 const style = {
     paperStyle: {
@@ -29,15 +30,10 @@ class SeriesDetail extends React.Component {
         this.series = [];
     }
 
-    static propTypes = {
-        match: PropTypes.object.isRequired,
-        location: PropTypes.object.isRequired,
-        history: PropTypes.object.isRequired
-    }
-
     state = {
         slideIndex: 0,
         newsStateObj: false,
+        showHSSCoach: false,
     };
 
     getSeries(activity) {
@@ -46,9 +42,11 @@ class SeriesDetail extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.showCoachMark();
+    }
+
     render() {
-        const {router, params, location, routes} = this.props
-        const {finished, stepIndex} = this.state;
         this.activity = this.props.location.state.clickedObject.clicked.fields.activity
         this.activity = this.getSeries(this.activity);
         return (
@@ -63,12 +61,28 @@ class SeriesDetail extends React.Component {
                         }
                     }.bind(this))}
                 </SwipeableViews>
+                <Snackbar
+                    open={this.state.showHSSCoach}
+                    message={utils.COACHMARKTEXT.hssswipe}
+                    action="Okay"
+                    autoHideDuration={4000}
+                />
             </div>
         );
     }
 
     logPageEvent() {
         GAEventLogger.logPageViewEvent(this.props.location.state.clickedObject.clicked.sys.contentType.sys.id);
+    }
+
+    handleCoachMarkClose() {
+        this.setState({showHSSCoach: false});
+    }
+
+    showCoachMark() {
+        if (!this.state.showHSSCoach) {
+            this.setState({showHSSCoach: true});
+        }
     }
 }
 
