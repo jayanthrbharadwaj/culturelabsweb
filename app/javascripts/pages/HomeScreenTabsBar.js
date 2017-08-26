@@ -2,7 +2,7 @@
  * Created by jayanth on 30/03/17.
  */
 import React, {PropTypes} from "react";
-import {Tabs, Tab, LinearProgress, Snackbar} from "material-ui";
+import {Tabs, Tab, LinearProgress, Snackbar, CircularProgress} from "material-ui";
 import SwipeableViews from "react-swipeable-views";
 import HomeScreenCards from "./HomeScreenCards";
 import SeriesHomeTab from "./SeriesHomeTab";
@@ -31,7 +31,7 @@ export default class HomeScreenTabsBar extends React.Component {
         this.setState({newsStateObj: false});
         axios.get('/newslist')
             .then(function (response) {
-                console.log("response " + JSON.stringify(response));
+                // console.log("response " + JSON.stringify(response));
                 this.newsList = PreProcess.filterCardsEntries(response.data);
                 this.seriesList = PreProcess.filterSeriesEntries(response.data);
                 this.setState({newsStateObj: true});
@@ -59,7 +59,6 @@ export default class HomeScreenTabsBar extends React.Component {
     render() {
         return (
             <div>
-                {!this.state.newsStateObj && <LinearProgress />}
                 <Tabs value={this.state.slideIndex} onChange={this.handleChange}>
                     <Tab label="Home" value={0}/>
                     <Tab label="Series" value={1}/>
@@ -68,14 +67,16 @@ export default class HomeScreenTabsBar extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChangeIndex}>
                     <div>
+                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
                         <HomeScreenCards newsList={this.newsList}/>
                     </div>
                     <div>
+                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
                         <SeriesHomeTab newsList={this.seriesList}/>
                     </div>
                 </SwipeableViews>
                 <Snackbar
-                    open={this.state.showHSSCoach}
+                    open={this.state.showHSCCoach}
                     message={utils.COACHMARKTEXT.hscswipe}
                     action="Okay"
                     autoHideDuration={4000}

@@ -4,7 +4,7 @@
 class ShareUrlBuilder {
     static  createShareUrl(itemObj) {
         var baseUrl = window.location.href
-        baseUrl = baseUrl + "?&id=" + itemObj.sys.id
+        baseUrl = baseUrl + "?id=" + itemObj.sys.id
         return baseUrl;
     }
 }

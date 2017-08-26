@@ -6,11 +6,23 @@ import {withRouter} from "react-router";
 import utils from "../utils/constants";
 import {Card, CardTitle, CardHeader, CardText, CardMedia, Divider} from "material-ui";
 import GAEventLogger from "../analytics/GAEventLogger";
-import ShareUrlBuilder from '../share/ShareUrlBuilder';
+import DocumentMeta from 'react-document-meta';
 import Whatsapp from "react-share-icons/lib/Whatsapp";
+import ShareUrlBuilder from '../share/ShareUrlBuilder';
 import ImageUtil from '../utils/ImageUtil'
 
-class NewsDetailScreen extends React.Component {
+const meta = {
+    title: 'Some Meta Title',
+    description: 'I am a description, and I can create multiple tags',
+    canonical: 'http://example.com/path/to/page',
+    meta: {
+        charset: 'utf-8',
+        name: {
+            keywords: 'react,meta,document,html,tags'
+        }
+    }
+};
+class PostsDetailScreen extends React.Component {
 
     constructor(props) {
         super(props);
@@ -36,6 +48,7 @@ class NewsDetailScreen extends React.Component {
     render() {
         return (
             <div>
+                <DocumentMeta {...meta} />
                 <a style={utils.allPostsStyle.noscroll} href={this.shareUrl}>
                     <Whatsapp /></a>
                 <Card>
@@ -82,4 +95,4 @@ class NewsDetailScreen extends React.Component {
     }
 }
 
-export default withRouter(NewsDetailScreen)
+export default withRouter(PostsDetailScreen)

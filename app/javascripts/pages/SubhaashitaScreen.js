@@ -69,7 +69,7 @@ class SankalpaMantraScreen extends React.Component {
                         </div>
                     ))}
                 </List>
-                
+
                 <br/>
                 {null != this.questionaireJson && <Paper zDepth={1}>
                     <CardTitle
@@ -124,13 +124,11 @@ class SankalpaMantraScreen extends React.Component {
             this.description = this.props.location.state.clickedObject.clicked.fields.description;
             this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.location.state.clickedObject.clicked)
             this.itemId = this.props.location.state.clickedObject.clicked.sys.contentType.sys.id;
-            console.log("shareurl " + this.shareUrl);
         } else {
             this.itemId = this.props.bundleObject.sys.contentType.sys.id;
             this.title = this.props.bundleObject.fields.title;
             this.description = this.props.bundleObject.fields.description;
             this.shareUrl = ShareUrlBuilder.createShareUrl(this.props.bundleObject)
-            console.log("shareurl " + this.shareUrl);
         }
         this.getSplitString(this.description);
         this.setState({newsStateObj: true})

@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, CardMedia, CardHeader, CardTitle, CardText} from "material-ui";
+import {Card, CardMedia, CardHeader, CardTitle, CardText, CardActions, FlatButton} from "material-ui";
 import {browserHistory} from "react-router";
 import utils from "../utils/constants";
 import SwipeableViews from "react-swipeable-views";
@@ -11,26 +11,17 @@ const title = "Today " + days[todaysDate.getDay()];
 
 const styles = {
     slideContainer: {
-        height: 632,
+        height: 0,
     },
     slide: {
         height: 0,
         color: '#fff',
     },
-    slide1: {
-        backgroundColor: '#FEA900',
-    },
-    slide2: {
-        backgroundColor: '#B3DC4A',
-    },
     scroll: {
-        height: 632,
+        height: 0,
         overflow: 'scroll',
     },
-    slide3: {
-        height: 632,
-        backgroundColor: '#6AC0FF',
-    },
+
 };
 
 class HomeScreenCards extends React.Component {
@@ -38,6 +29,7 @@ class HomeScreenCards extends React.Component {
     constructor(props) {
         super(props);
         this.includes = {};
+        styles.slideContainer.height =  window.outerHeight-100;
         styles.slide.height = styles.slideContainer.height / 1.8
         this.currentListIndex = -1;
     }
@@ -66,14 +58,22 @@ class HomeScreenCards extends React.Component {
                         }.bind(this)} containerStyle={utils.kannadaStyle.titleStyle}>
                             <CardHeader title={object.fields.title}
                                         subtitle={object.fields.title} />
-                            <CardText>{object.fields.description}</CardText></Card>
+                            <CardText>{object.fields.description}</CardText>
+                            <CardActions>
+                                <FlatButton label="Read more" onClick={this.handleListItemClick} />
+                            </CardActions>
+                        </Card>
                     } else if (object.sys.contentType.sys.id == utils.data.kanthapaatha) {
                         return <Card onTouchTap={function (e) {
                             this.handleListItemClick({clicked: object, clickedIndex:i})
                         }.bind(this)} containerStyle={utils.kannadaStyle.titleStyle}>
                             <CardHeader title={object.fields.title}
                                         subtitle={object.fields.title} />
-                            <CardText>{object.fields.subtitle}</CardText></Card>
+                            <CardText>{object.fields.subtitle}</CardText>
+                            <CardActions>
+                                <FlatButton label="Read more" onClick={this.handleListItemClick} />
+                            </CardActions>
+                        </Card>
                     } else if (object.sys.contentType.sys.id == utils.data.newsItems) {
                         return <div><Card onTouchTap={function (e) {
                             this.handleListItemClick({clicked: object, clickedIndex:i})
@@ -86,7 +86,11 @@ class HomeScreenCards extends React.Component {
                                      alt=""/>
                             </CardMedia>
                             <CardText
-                                style={utils.kannadaStyle.cardtextstyle}>{object.fields.description}</CardText></Card>
+                                style={utils.kannadaStyle.cardtextstyle}>{object.fields.description}</CardText>
+                            <CardActions>
+                                <FlatButton label="Read more" onClick={this.handleListItemClick} />
+                            </CardActions>
+                        </Card>
                         </div>
                     } else if (object.sys.contentType.sys.id == utils.data.post) {
                         return <Card onTouchTap={function (e) {
@@ -99,7 +103,11 @@ class HomeScreenCards extends React.Component {
                                      src={ImageUtil.getImageUrlHttp(object.fields.featuredImage.fields.file.url)}
                                      alt=""/>
                             </CardMedia>
-                            <CardText style={utils.kannadaStyle.cardtextstyle}>{object.fields.body}</CardText></Card>
+                            <CardText style={utils.kannadaStyle.cardtextstyle}>{object.fields.body}</CardText>
+                            <CardActions>
+                                <FlatButton label="Read more" onClick={this.handleListItemClick} />
+                            </CardActions>
+                        </Card>
                     } else if (object.sys.contentType.sys.id == utils.data.photoCarousal) {
                         {/*return <PhotoCarousal containerStyle={utils.kannadaStyle.titleStyle} subtitle={object.fields.subtitle}/>*/
                         }

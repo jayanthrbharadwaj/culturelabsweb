@@ -39,6 +39,10 @@ titleStyle:{
          overflow:'hidden',
          height:'30%',
          display:'inline-block'
+        },
+    loadingtextstyle:{
+         marginLeft:'40%',
+         marginTop:'50%'
         }
     }
     var allPostsStyle = {
