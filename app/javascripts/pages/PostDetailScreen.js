@@ -50,7 +50,7 @@ class PostsDetailScreen extends React.Component {
         return (
             <div>
                 <DocumentMeta {...meta} />
-                <a style={utils.allPostsStyle.noscroll} href={this.shareUrl}>
+                <a style={utils.allPostsStyle.noscroll} href={"whatsapp://send?text="+this.shareUrl}>
                     <Whatsapp /></a>
                 <Card>
                     <CardHeader
