@@ -20,6 +20,7 @@ class NewsDetailScreen extends React.Component {
         this.description;
         this.shareUrl;
         this.itemId
+        utils.kannadaStyle.titleStyle.subtitleStyle = window.outerHeight;
         this.logPageEvent()
     }
 

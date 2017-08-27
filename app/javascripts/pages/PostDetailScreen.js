@@ -27,6 +27,7 @@ class PostsDetailScreen extends React.Component {
     constructor(props) {
         super(props);
         this.pageObject = {};
+        utils.kannadaStyle.titleStyle.subtitleStyle = window.outerHeight;
         this.logPageEvent()
     }
 

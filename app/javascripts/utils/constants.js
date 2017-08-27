@@ -22,22 +22,22 @@ var currentListIndex = 0;
 var kannadaStyle = {
 titleStyle:{
         fontSize: 24,
+        textOverflow: 'ellipsis',
         fontFamily: 'Arimo',
         whiteSpace: 'pre-wrap',
         wordWrap: 'break-word',
-        height:'632'
+        borderStyle: 'outset'
         },
  subtitleStyle:{
          fontSize: 20,
          fontFamily: 'Arimo',
          whiteSpace: 'normal',
          wordWrap: 'break-word',
-         maxheight:'632'
          },
    cardtextstyle:{
          textOverflow: 'ellipsis',
          overflow:'hidden',
-         height:'30%',
+         height:'90%',
          display:'inline-block'
         },
     loadingtextstyle:{

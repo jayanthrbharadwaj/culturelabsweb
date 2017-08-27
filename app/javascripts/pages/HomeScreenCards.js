@@ -29,8 +29,10 @@ class HomeScreenCards extends React.Component {
     constructor(props) {
         super(props);
         this.includes = {};
-        styles.slideContainer.height =  window.outerHeight-100;
+        styles.slideContainer.height =  window.outerHeight-98;
         styles.slide.height = styles.slideContainer.height / 1.8
+        utils.kannadaStyle.titleStyle.height = window.outerHeight-98-6;
+        utils.kannadaStyle.cardtextstyle.height =  (styles.slideContainer.height - styles.slide.height-98-6)*0.98;
         this.currentListIndex = -1;
     }
 
