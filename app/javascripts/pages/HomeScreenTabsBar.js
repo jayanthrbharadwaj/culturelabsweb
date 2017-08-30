@@ -18,14 +18,8 @@ export default class HomeScreenTabsBar extends React.Component {
         this.newsList = [];
         this.seriesList = [];
         this.loadDBData();
-        this.state = {slideIndex: utils.currentTabIndex};
+        this.state = {slideIndex: utils.currentTabIndex, newsStateObj: false, showHSCCoach: false,};
     }
-
-    state = {
-        slideIndex: utils.currentTabIndex,
-        newsStateObj: false,
-        showHSCCoach: false,
-    };
 
     loadDBData() {
         this.setState({newsStateObj: false});
@@ -68,11 +62,11 @@ export default class HomeScreenTabsBar extends React.Component {
                     onChangeIndex={this.handleChangeIndex}>
                     <div>
                         {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
-                        <HomeScreenCards newsList={this.newsList}/>
+                        {this.state.newsStateObj && <HomeScreenCards newsList={this.newsList}/>}
                     </div>
                     <div>
                         {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
-                        <SeriesHomeTab newsList={this.seriesList}/>
+                        {this.state.newsStateObj && <SeriesHomeTab newsList={this.seriesList}/>}
                     </div>
                 </SwipeableViews>
                 <Snackbar

@@ -30,7 +30,7 @@ function handleCallBack(item) {
 module.exports = {
     getHomeScreenResponse: function (callBackFun) {
         if (myCache.get(serverCache.CACHE_KEYS.HOME) == undefined) {
-            return client.getEntries()
+            return client.getEntries({order: '-sys.createdAt'})
                 .then((response) => {
                     myCache.set(serverCache.CACHE_KEYS.HOME, response, function (err, success) {
                         if (!err && success) {
