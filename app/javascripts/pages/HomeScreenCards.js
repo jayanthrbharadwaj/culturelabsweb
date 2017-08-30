@@ -82,9 +82,9 @@ class HomeScreenCards extends React.Component {
                         }.bind(this)} containerStyle={utils.kannadaStyle.titleStyle}>
                             <CardMedia
                                 overlay={<CardTitle title={object.fields.title}
-                                                    subtitle={object.fields.featuredImage.fields.title}/>}>
+                                                    subtitle={null != object.fields.featuredImage && object.fields.featuredImage.fields.title}/>}>
                                 <img height={styles.slide.height}
-                                     src={ImageUtil.getImageUrlHttp(object.fields.featuredImage.fields.file.url)}
+                                     src={ImageUtil.getImageUrlHttp(null != object.fields.featuredImage && object.fields.featuredImage.fields.file.url)}
                                      alt=""/>
                             </CardMedia>
                             <CardText
@@ -100,10 +100,11 @@ class HomeScreenCards extends React.Component {
                         }.bind(this)} containerStyle={utils.kannadaStyle.titleStyle}>
                             <CardMedia
                                 overlay={<CardTitle title={object.fields.title}
-                                                    subtitle={object.fields.featuredImage.fields.title}/>}>
+                                                    subtitle={null != object.fields.featuredImage && object.fields.featuredImage.fields.title}/>}>
                                 <img height={styles.slide.height}
-                                     src={ImageUtil.getImageUrlHttp(object.fields.featuredImage.fields.file.url)}
+                                     src={null == object.fields.featuredImage?"":object.fields.featuredImage.fields.file.url}
                                      alt=""/>
+
                             </CardMedia>
                             <CardText style={utils.kannadaStyle.cardtextstyle}>{object.fields.body}</CardText>
                             <CardActions>

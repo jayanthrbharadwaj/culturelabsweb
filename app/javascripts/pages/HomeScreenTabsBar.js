@@ -22,6 +22,7 @@ export default class HomeScreenTabsBar extends React.Component {
     }
 
     loadDBData() {
+        this.setState({newsStateObj: false});
         axios.get('/newslist')
             .then(function (response) {
                 // console.log("response " + JSON.stringify(response));
@@ -74,9 +75,13 @@ export default class HomeScreenTabsBar extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChangeIndex}>
                     <div>
-                        <HomeScreenCards newsList={this.newsList}/>
+                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
+                        {this.state.newsStateObj && <HomeScreenCards newsList={this.newsList}/>}
+
                     </div>
                     <div>
+                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
+                        {this.state.newsStateObj && <SeriesHomeTab newsList={this.seriesList}/>}
                         <SeriesHomeTab newsList={this.seriesList}/>
                     </div>
                 </SwipeableViews>
