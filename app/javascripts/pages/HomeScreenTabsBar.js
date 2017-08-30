@@ -22,18 +22,30 @@ export default class HomeScreenTabsBar extends React.Component {
     }
 
     loadDBData() {
-        this.setState({newsStateObj: false});
         axios.get('/newslist')
             .then(function (response) {
                 // console.log("response " + JSON.stringify(response));
                 this.newsList = PreProcess.filterCardsEntries(response.data);
                 this.seriesList = PreProcess.filterSeriesEntries(response.data);
-                this.setState({newsStateObj: true});
                 this.showCoachMark();
             }.bind(this))
             .catch(function (error) {
                 //console.log(error);
             });
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        console.log("nextState "+nextState.newsStateObj);
+        return nextState.newsStateObj;
+    }
+
+    componentDidUpdate(prevProps, prevState){
+        console.log("prevState "+prevState.newsStateObj);
+        console.log(prevState.newsStateObj);
+    }
+
+    componentWillUnmount () {
+        this.setState({newsStateObj: false});
     }
 
     handleChange = (value) => {
@@ -53,6 +65,7 @@ export default class HomeScreenTabsBar extends React.Component {
     render() {
         return (
             <div>
+                {!this.state.newsStateObj && <LinearProgress />}
                 <Tabs value={this.state.slideIndex} onChange={this.handleChange}>
                     <Tab label="Home" value={0}/>
                     <Tab label="Series" value={1}/>
@@ -61,12 +74,10 @@ export default class HomeScreenTabsBar extends React.Component {
                     index={this.state.slideIndex}
                     onChangeIndex={this.handleChangeIndex}>
                     <div>
-                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
-                        {this.state.newsStateObj && <HomeScreenCards newsList={this.newsList}/>}
+                        <HomeScreenCards newsList={this.newsList}/>
                     </div>
                     <div>
-                        {!this.state.newsStateObj && <CircularProgress size={80} thickness={5} style={utils.kannadaStyle.loadingtextstyle} />}
-                        {this.state.newsStateObj && <SeriesHomeTab newsList={this.seriesList}/>}
+                        <SeriesHomeTab newsList={this.seriesList}/>
                     </div>
                 </SwipeableViews>
                 <Snackbar
@@ -82,11 +93,11 @@ export default class HomeScreenTabsBar extends React.Component {
 
     showCoachMark() {
         if (!this.state.showHSCCoach && this.state.slideIndex == null) {
-            this.setState({showHSCCoach: true});
+            this.setState({newsStateObj: true, showHSCCoach: true});
         }
     }
 
     handleCoachMarkClose() {
-        this.setState({showHSCCoach: false});
+        this.setState({newsStateObj: true, showHSCCoach: false});
     }
 }
