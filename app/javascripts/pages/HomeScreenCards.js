@@ -62,7 +62,6 @@ class HomeScreenCards extends React.Component {
                                         subtitle={object.fields.title} />
                             <CardText>{object.fields.description}</CardText>
                             <CardActions>
-                                sdkjhsjdk
                                 <FlatButton label="Read more" onClick={this.handleListItemClick} />
                             </CardActions>
                         </Card>
