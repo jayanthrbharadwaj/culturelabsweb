@@ -8,14 +8,15 @@ import ImageUtil from "../utils/ImageUtil";
 import {Paper, Snackbar} from 'material-ui';
 import GAEventLogger from '../analytics/GAEventLogger';
 import utils from '../utils/constants'
+import FlipPage from 'react-flip-page'
 
 const style = {
     paperStyle: {
         textAlign: 'center',
         width: '100%',
+        height:'100%',
         marginTop: '10px',
         marginLeft: '10px',
-        marginRight: '20px',
         display: 'inline-block',
         verticalAlign: 'middle'
     },
@@ -51,7 +52,7 @@ class SeriesDetail extends React.Component {
         this.activity = this.getSeries(this.activity);
         return (
             <div style={style.fonStyle}>
-                <SwipeableViews>
+                <FlipPage>
                     {null != this.activity && this.activity.map(function (object, i) {
                         object = ImageUtil.getImageUrl(object);
                         if (object.indexOf("images") != -1) {
@@ -60,7 +61,7 @@ class SeriesDetail extends React.Component {
                             return <div className='font-effect-putting-green'>{object}</div>
                         }
                     }.bind(this))}
-                </SwipeableViews>
+                </FlipPage>
                 <Snackbar
                     open={this.state.showHSSCoach}
                     message={utils.COACHMARKTEXT.hssswipe}
