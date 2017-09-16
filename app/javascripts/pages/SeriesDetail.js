@@ -52,7 +52,7 @@ class SeriesDetail extends React.Component {
         this.activity = this.getSeries(this.activity);
         return (
             <div style={style.fonStyle}>
-                <FlipPage>
+                <FlipPage orientation="horizontal">
                     {null != this.activity && this.activity.map(function (object, i) {
                         object = ImageUtil.getImageUrl(object);
                         if (object.indexOf("images") != -1) {
