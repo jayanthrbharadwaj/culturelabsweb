@@ -56,7 +56,7 @@ class SeriesDetail extends React.Component {
                     {null != this.activity && this.activity.map(function (object, i) {
                         object = ImageUtil.getImageUrl(object);
                         if (object.indexOf("images") != -1) {
-                            return <Paper zDepth={4} style={style.paperStyle}><img src={object}></img></Paper>
+                            return <div style={style.paperStyle}><img src={object}></img></div>
                         } else {
                             return <div className='font-effect-putting-green'>{object}</div>
                         }
