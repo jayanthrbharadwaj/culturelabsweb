@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, CardMedia, CardHeader, CardTitle, CardText, CardActions, FlatButton} from "material-ui";
 import {browserHistory} from "react-router";
-import utils from "../utils/constants";
+import utils from "../utils/Constants";
 import SwipeableViews from "react-swipeable-views";
 import ImageUtil from "../utils/ImageUtil";
 

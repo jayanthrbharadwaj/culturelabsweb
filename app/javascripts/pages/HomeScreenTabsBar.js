@@ -8,7 +8,7 @@ import HomeScreenCards from "./HomeScreenCards";
 import SeriesHomeTab from "./SeriesHomeTab";
 import PreProcess from "../utils/PreProcess";
 import axios from "axios";
-import utils from '../utils/constants'
+import utils from '../utils/Constants'
 // From https://github.com/oliviertassinari/react-swipeable-views
 
 export default class HomeScreenTabsBar extends React.Component {
