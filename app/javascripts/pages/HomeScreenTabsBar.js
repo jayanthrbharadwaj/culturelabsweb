@@ -97,9 +97,7 @@ export default class HomeScreenTabsBar extends React.Component {
     }
 
     showCoachMark() {
-        if (!this.state.showHSCCoach && this.state.slideIndex == null) {
-            this.setState({newsStateObj: true, showHSCCoach: true});
-        }
+        this.setState({newsStateObj: true, showHSCCoach: true});
     }
 
     handleCoachMarkClose() {
