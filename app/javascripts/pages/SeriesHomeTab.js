@@ -1,7 +1,7 @@
 import React from "react";
 import {GridList, GridTile} from "material-ui";
 import {browserHistory} from "react-router";
-import utils from "../utils/constants";
+import utils from "../utils/Constants";
 
 const styles = {
     root: {

@@ -3,7 +3,7 @@
  */
 import React, {PropTypes} from "react";
 import {withRouter} from "react-router";
-import utils from "../utils/constants";
+import utils from "../utils/Constants";
 import {Card, CardTitle, CardHeader, CardText, CardMedia, Divider} from "material-ui";
 import GAEventLogger from "../analytics/GAEventLogger";
 import DocumentMeta from 'react-document-meta';
@@ -61,8 +61,7 @@ class PostsDetailScreen extends React.Component {
                     />
                     <CardMedia
                         overlay={<CardTitle title={this.title}
-                                            subtitle={this.subtitle}/>}
-                    >
+                                            subtitle={this.subtitle}/>}>
                         <img src={this.imageUrl}
                              alt=""/>
                     </CardMedia>

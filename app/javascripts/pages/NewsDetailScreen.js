@@ -3,7 +3,7 @@
  */
 import React, {PropTypes} from "react";
 import {withRouter} from "react-router";
-import utils from "../utils/constants";
+import utils from "../utils/Constants";
 import {Card, CardText, CardHeader, Divider} from "material-ui";
 import GAEventLogger from '../analytics/GAEventLogger';
 import Whatsapp from 'react-share-icons/lib/Whatsapp';

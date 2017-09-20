@@ -3,7 +3,7 @@
  */
 import React, {PropTypes} from "react";
 import {withRouter} from "react-router";
-import utils from "../utils/constants";
+import utils from "../utils/Constants";
 import {Card, CardTitle, CardText, Divider} from "material-ui";
 import GAEventLogger from "../analytics/GAEventLogger";
 import ShareUrlBuilder from '../share/ShareUrlBuilder';
