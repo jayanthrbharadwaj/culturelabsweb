@@ -7,7 +7,7 @@ import SwipeableViews from 'react-swipeable-views';
 import ImageUtil from "../utils/ImageUtil";
 import {Paper, Snackbar} from 'material-ui';
 import GAEventLogger from '../analytics/GAEventLogger';
-import utils from '../utils/constants'
+import utils from '../utils/Constants'
 import FlipPage from 'react-flip-page'
 
 const style = {
@@ -54,9 +54,12 @@ class SeriesDetail extends React.Component {
             <div style={style.fonStyle}>
                 <FlipPage orientation="horizontal">
                     {null != this.activity && this.activity.map(function (object, i) {
-                        object = ImageUtil.getImageUrl(object);
-                        if (object.indexOf("images") != -1) {
-                            return <div style={style.paperStyle}><img src={object}></img></div>
+                        object = ImageUtil.getImageUrlAndMeta(object);
+                        if (null != object.url && object.url.indexOf("images") != -1) {
+                            return <div style={style.paperStyle}><img src={object.url}></img>
+                                <br/>
+                                <div>{object.imageMeta}</div>
+                            </div>
                         } else {
                             return <div className='font-effect-putting-green'>{object}</div>
                         }

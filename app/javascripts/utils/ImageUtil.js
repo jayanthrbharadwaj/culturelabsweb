@@ -27,6 +27,19 @@ class ImageUtil {
         return photoCarousal;
     }
 
+    static getImageUrlAndMeta(url) {
+        if (url.indexOf("(//") != -1) {
+            url = url.split("(//")[1];
+            url = "http://" + url.replace(')', '');
+            var photoMeta = new Object();
+            photoMeta.url = url;
+            photoMeta.url = url.split("\n")[0]
+            photoMeta.imageMeta = url.split("\n")[1]
+            return photoMeta;
+        }
+        return url
+    }
+
     static getImageUrl(url) {
         if (url.indexOf("(//") != -1) {
             url = url.split("(//")[1];
