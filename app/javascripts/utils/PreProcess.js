@@ -1,7 +1,7 @@
 /**
  * Created by jayanth on 27/07/17.
  */
-var utils = require('./constants')
+var utils = require('./Constants')
 
 Date.prototype.yyyymmdd = function () {
     var mm = this.getMonth() + 1; // getMonth() is zero-based

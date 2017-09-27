@@ -50,8 +50,8 @@ class NewsDetailScreen extends React.Component {
                         title={this.title}
                         avatar={this.imageUrl}
                     />
-                    <CardText
-                        style={utils.kannadaStyle.subtitleStyle}>{this.description}</CardText>
+                    <div
+                        style={utils.kannadaStyle.subtitleStyle}>{this.description}</div>
                 </Card>
                 <Divider />
 

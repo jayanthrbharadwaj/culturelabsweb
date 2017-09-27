@@ -65,7 +65,7 @@ class PostsDetailScreen extends React.Component {
                         <img src={this.imageUrl}
                              alt=""/>
                     </CardMedia>
-                    <CardText style={utils.kannadaStyle.titleStyle}>{this.description}</CardText>
+                    <div style={utils.kannadaStyle.titleStyle}>{this.description}</div>
                 </Card>
                 <Divider />
 

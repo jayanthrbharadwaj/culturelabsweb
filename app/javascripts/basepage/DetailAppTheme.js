@@ -10,7 +10,7 @@ import NewsDetailScreen from "../pages/NewsDetailScreen";
 import PostDetailScreen from "../pages/PostDetailScreen";
 import SeriesDetailScreen from "../pages/SeriesDetail";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import utils from '../utils/constants'
+import utils from '../utils/Constants'
 import URLMatcher from '../utils/URLMatcher'
 import ImageUtil from '../utils/ImageUtil'
 

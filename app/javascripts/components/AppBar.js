@@ -11,7 +11,7 @@ import Avatar from "material-ui/Avatar";
  */
 const AppBarExampleIcon = () => (
     <AppBar
-        title="AnnaDaata Sukhibhava"
+        title="Madhwa Sangraha"
         iconClassNameRight="muidocs-icon-navigation-expand-more"
         iconElementLeft={ <Avatar src="https://lh3.googleusercontent.com/A3y_9JgOELvWHUNG8t1Tk1cnx6W-YcgdBcxIWY4OOwhGTXARl0n6BY9xF8zeMMYpug=w300-rw"></Avatar>}
     />
