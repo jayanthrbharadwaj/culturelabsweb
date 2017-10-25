@@ -27,7 +27,7 @@ class App extends React.Component {
 			<Tab label="About Us">
 			<div>
                                 <h1 style={styletext}>About Us</h1>
-                                <hr style={hrstyle}/>
+                                <hr/>
                                 <p>We are Team based out of Bengaluru. Our core competency is in creating a platform for all our users who actively contribute
 								   to the culture they are brought up in. Pass on the joy of being a part of this platform and involve your own community and collaborate</p>
                                 <hr/>
