@@ -36,7 +36,7 @@ class App extends React.Component {
                                 <TextField hintText="youremail" floatingLabelText="Email Id"/><br/>
                                 <TextField hintText="yourfeedback" floatingLabelText="Feedback" multiLine={true}/><br/>
                                 <Checkbox label="Please tick checkbox below. Incase we reach out to you directly"/><br/>
-                                <RaisedButton label="Submit" style="margin:12;"/>
+                                <RaisedButton label="Submit"/>
                         </div>
 			</Tab>
                     </Tabs>
